@@ -1,1 +1,4 @@
 docker network create --driver overlay overmind
+
+# docker network ls
+# https://docs.docker.com/network/overlay/

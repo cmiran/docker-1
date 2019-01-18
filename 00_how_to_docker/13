@@ -1,1 +1,4 @@
 docker exec spawning-pool env
+
+# docker container inspect -f '{{ .Name }} {{ .HostConfig.Binds }}' spawning-pool
+# docker inspect -f '{{ .Mounts }}' spawning-pool

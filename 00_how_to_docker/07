@@ -1,1 +1,4 @@
-docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' overlord
+docker inspect -f '{{ .NetworkSettings.IPAddress }}' e5d744fd8589
+
+# docker ps
+# https://linuxconfig.org/how-to-retrieve-docker-container-s-internal-ip-address

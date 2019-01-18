@@ -1,1 +1,5 @@
 docker run -d --name overlord --restart always --publish 5000:80 nginx
+
+# docker ps
+# https://www.digitalocean.com/community/tutorials/how-to-run-nginx-in-a-docker-container-on-ubuntu-14-04
+# docker pull nginx

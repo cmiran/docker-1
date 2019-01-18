@@ -1,1 +1,5 @@
 docker pull hello-world
+
+# docker image ls
+# docker container ls --all
+# https://hub.docker.com/_/hello-world

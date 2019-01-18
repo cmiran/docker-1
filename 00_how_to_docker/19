@@ -1,3 +1,6 @@
 docker-machine ssh Char mkdir /home/Abathur
 docker-machine scp hello.py Char:/home/Abathur
 docker run -d --name Abathur -v /home/Abathur:/root --env FLASK_APP=hello.py -w /root -p 3000:3000 python:2-slim bash -c 'pip install flask && flask run -h 0.0.0.0 -p 3000'
+
+# https://hub.docker.com/_/python/
+# http://flask.pocoo.org/
