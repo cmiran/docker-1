@@ -1,4 +1,4 @@
-docker-machine create --driver virtualbox --virtualbox-disk-size "60606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606000" Char
+docker-machine create --driver virtualbox --virtualbox-disk-size "6000" Char
 
 # docker-machine ls
 # https://docs.docker.com/machine/drivers/virtualbox/
