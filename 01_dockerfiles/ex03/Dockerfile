@@ -8,16 +8,10 @@ curl \
 postfix
 
 WORKDIR /
-RUN curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
 
-RUN bash script.deb.sh
-
-RUN apt-get update && EXTERNAL_URL="http://gitlab.example.com" apt-get install -yq gitlab-ce
-
-# Missing Time Zone Data /usr/share/zoneinfo
-# https://gitlab.com/gitlab-org/omnibus-gitlab/issues/2229
-RUN apt update && apt install -y tzdata && \
-  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh && \
+bash script.deb.sh && \
+apt-get update && EXTERNAL_URL="http://gitlab.example.com" apt-get install -yq gitlab-ce
 
 EXPOSE 22 80 443
 
@@ -26,9 +20,7 @@ RUN chmod +x /entrypoint.sh
 
 CMD [ "bash", "/entrypoint.sh" ]
 
-# iptables iptables -A INPUT -p tcp -i eth0 --dport http -j ACCEPT
-# iptables iptables -A INPUT -p tcp -i eth0 --dport https -j ACCEPT
-# iptables -A INPUT -p tcp -i eth0 --dport ssh -j ACCEPT
+# iptables -A INPUT -p tcp --dport http,https,ssh -j ACCEPT
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-gitlab-on-debian-9
 # docker build -t ex03 .
 # docker run -it --rm -p 80:80 -p 21:22 --privileged ex03
